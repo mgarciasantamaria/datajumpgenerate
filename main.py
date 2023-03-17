@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #_*_ codig: utf8 _*_
-#script desarrollado para v8
 import datetime, boto3, psycopg2, time, os
 from dateutil.relativedelta import relativedelta
 from humanize import naturalsize
@@ -27,7 +26,7 @@ csv_file.close()
 psql_cursor.close()
 psql_db.close()
 time.sleep(10)
-#s3.upload_file(file_path, bucket, file_name)
+s3.upload_file(file_path, bucket, file_name)
 
 file_size=naturalsize(os.path.getsize(file_path))
 mail_subject=f'Data Jumps Generate {file_name}'
