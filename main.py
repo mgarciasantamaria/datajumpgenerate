@@ -20,8 +20,6 @@ file_path=f"{jumpsdata_Path}/{file_name}"
 csv_file=open(file_path, 'w')
 SQL=f"COPY (SELECT datetime,client,contentid,mediaid,ip,duration,type FROM new_segmentos WHERE DateTime LIKE '%{date_sql}%') TO STDOUT WITH CSV HEADER"
 psql_cursor.copy_expert(SQL, csv_file)
-SQL=f"COPY (SELECT datetime,client,contentid,mediaid,ip,duration,type FROM old_new_segmentos WHERE DateTime LIKE '%{date_sql}%') TO STDOUT"
-psql_cursor.copy_expert(SQL, csv_file)
 csv_file.close()
 psql_cursor.close()
 psql_db.close()
